@@ -1,0 +1,28 @@
+{% extends 'authorize/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-3 mb-4">
+      <img src="{% static 'authorize/img/default-avatar.jpg' %}" alt="Avatar" class="img-fluid rounded-circle">
+    </div>
+    <div class="col-12 col-md-9">
+      <h1 class="mb-3">{{ user.username }}</h1>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p><strong>Имя:</strong> {{ user.first_name }}</p>
+          <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Телефон:</strong> {% if user.profile.phone %}{{ user.profile.phone }}{% else %}Заглушка{% endif %}</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p><strong>Город проживания:</strong> {% if user.profile.city %}{{ user.profile.city }}{% else %}Заглушка{% endif %}</p>
+          <p><strong>Улица:</strong> {% if user.profile.street %}{{ user.profile.street }}{% else %}Заглушка{% endif %}</p>
+          <p><strong>Дом:</strong> {% if user.profile.house %}{{ user.profile.house }}{% else %}Заглушка{% endif %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
