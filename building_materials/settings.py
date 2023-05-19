@@ -26,7 +26,7 @@ SECRET_KEY = uuid.uuid4()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -143,5 +143,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
 
-# AUTH_USER_MODEL = 'authorize.User'
-
+AUTH_USER_MODEL = 'authorize.Person'
