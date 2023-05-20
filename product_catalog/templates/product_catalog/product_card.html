@@ -4,24 +4,11 @@
 {% block content %}
 <div class="container">
   <div class="row">
-      <div class="col-lg-3">
-        <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action">Инструмент</a>
-          <a href="#" class="list-group-item list-group-item-action">Электрика и свет</a>
-          <a href="#" class="list-group-item list-group-item-action">Сантехника и инженерные системы</a>
-          <a href="#" class="list-group-item list-group-item-action">Ручной инструмент</a>
-          <a href="#" class="list-group-item list-group-item-action">Все для сада</a>
-          <a href="#" class="list-group-item list-group-item-action">Крепеж и фурнитура</a>
-          <a href="#" class="list-group-item list-group-item-action">Отделочные и стройматериалы</a>
-          <a href="#" class="list-group-item list-group-item-action">Офис и дом</a>
-          <a href="#" class="list-group-item list-group-item-action">Климат и отопление</a>
-          <a href="#" class="list-group-item list-group-item-action">Строительное оборудование</a>
-        </div>
-      </div>
-    <div class="col-lg-4">
+      {% include 'authorize/nav_menu.html' %}
+    <div class="col-md-4">
       <img src="{% static 'product_catalog/img/defoult-product.jpg' %}" alt="Product Image" class="img-fluid">
     </div>
-    <div class="col-lg-5">
+    <div class="col-md-5">
       <div class="p-4 bg-white">
         <h2>Название товара</h2>
         <p>Описание товара</p>
