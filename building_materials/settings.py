@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'authorize.apps.AuthorizeConfig',
+    'product_catalog.apps.ProductCatalogConfig',
 
     'allauth',
     'allauth.account',

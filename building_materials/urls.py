@@ -20,10 +20,12 @@ from django.urls import path, include
 
 from building_materials import settings
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('authorize.urls')),
+    path('products/', include('product_catalog.urls')),
 
 ]
 if settings.DEBUG:
