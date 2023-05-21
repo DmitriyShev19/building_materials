@@ -1,7 +1,8 @@
 """
 Модуль admin.py в приложении authorize
 
-Модуль admin.py в приложении authorize содержит настройки административного интерфейса Django для модели Person.
+Модуль admin.py в приложении authorize содержит настройки административного
+интерфейса Django для модели Person.
 """
 
 from django.contrib import admin
