@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'product_catalog.apps.ProductCatalogConfig',
     'checkout_process.apps.CheckoutProcessConfig',
     'payment.apps.PaymentConfig',
+    'forumify.apps.ForumifyConfig',
 
     'allauth',
     'allauth.account',

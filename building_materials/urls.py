@@ -26,8 +26,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('authorize.urls')),
     path('products/', include('product_catalog.urls')),
-    path('checkout/', include('checkout_process.urls')),
-    path('payment', include('payment.urls')),
+    # path('checkout/', include('checkout_process.urls')),
+    # path('payment', include('payment.urls')),
+    # path('forum/', include('forumify.urls'))
 ]
 
 if settings.DEBUG:
