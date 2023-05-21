@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authorize.apps.AuthorizeConfig',
     'product_catalog.apps.ProductCatalogConfig',
     'checkout_process.apps.CheckoutProcessConfig',
+    'payment.apps.PaymentConfig',
 
     'allauth',
     'allauth.account',
