@@ -4,17 +4,21 @@
 {% block content %}
 <div class="container">
   <div class="row">
-      {% include 'authorize/nav_menu.html' %}
-    <div class="col-md-4">
+      <div class="col-md-3 mt-4">
+              {% include 'authorize/nav_menu.html' %}
+      </div>
+    <div class="col-md-4 mt-4">
       <img src="{% static 'product_catalog/img/defoult-product.jpg' %}" alt="Product Image" class="img-fluid">
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 mt-4">
       <div class="p-4 bg-white">
         <h2>Название товара</h2>
         <p>Описание товара</p>
         <p>Цена: $99.99</p>
         <button class="btn btn-primary">Добавить в корзину</button>
       </div>
+            <a href="{% url 'product_create' %}">Ghbdt
+            </a>
     </div>
   </div>
 </div>

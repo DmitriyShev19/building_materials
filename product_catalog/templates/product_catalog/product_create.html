@@ -1,0 +1,39 @@
+{% extends 'authorize/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-4">
+      {% include 'authorize/nav_menu.html' %}
+    </div>
+    <div class="col-md-9 mt-4">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="short_name">Короткое название:</label>
+        <input type="text" name="short_name" id="short_name" required>
+        <br>
+        <label for="full_name">Полное название:</label>
+        <input type="text" name="full_name" id="full_name" required>
+        <br>
+        <label for="description">Описание товара:</label>
+        <textarea name="description" id="description" required></textarea>
+        <br>
+        <label for="price">Цена:</label>
+        <input type="number" name="price" id="price" required>
+        <br>
+        <label for="image">Изображение товара:</label>
+        <input type="file" name="image" id="image" required>
+        <br>
+            <label for="category">Категория:</label>
+            <select name="category" id="category" required>
+              {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+              {% endfor %}
+            </select>
+        <input type="submit" value="Создать">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
