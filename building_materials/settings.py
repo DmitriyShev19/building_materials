@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authorize.apps.AuthorizeConfig',
     'product_catalog.apps.ProductCatalogConfig',
+    'checkout_process.apps.CheckoutProcessConfig',
 
     'allauth',
     'allauth.account',
