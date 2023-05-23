@@ -26,6 +26,7 @@ form.save()  # Сохранение данных из формы в модель
 """
 from django import forms
 from .models import Person
+from allauth.account.forms import LoginForm, SignupForm
 
 
 class PersonForm(forms.ModelForm):

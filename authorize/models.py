@@ -30,8 +30,8 @@ from django.db import models
 
 
 class Person(AbstractUser):
-    city = models.CharField(max_length=100, null=True)
-    street = models.CharField(max_length=100, null=True)
-    house_number = models.CharField(max_length=20, null=True)
-    phone_numbers = models.CharField(max_length=20, null=True)
-    avatar = models.ImageField(upload_to="photos/%Y/%m/%d", blank=True)
+    city = models.CharField(max_length=100, null=True, blank=True)
+    street = models.CharField(max_length=100, null=True, blank=True)
+    house_number = models.CharField(max_length=20, null=True, blank=True)
+    phone_numbers = models.CharField(max_length=20, null=True, blank=True)
+    avatar = models.ImageField(upload_to="photos/%Y/%m/%d", null=True, blank=True)
