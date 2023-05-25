@@ -21,9 +21,9 @@ form.py.
 - ProductCreateView(View): класс представления для отображения страницы
 создания нового продукта.
 """
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Category, Product
+from .models import Category, Product, Cart, CartItem
 from .form import ProductForm
 
 
@@ -89,3 +89,31 @@ class ProductCreateView(View):
             return redirect("product_card")
         context = {"form": form}
         return render(request, "product_catalog/product_create.html", context)
+
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    user = request.user
+
+    cart, created = Cart.objects.get_or_create(user=user)
+
+    cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
+
+    if not item_created:
+        cart_item.quantity += 1
+        cart_item.save()
+
+    return redirect('cart')
+
+
+def view_cart(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+    cart_items = CartItem.objects.filter(cart=cart)
+
+    context = {
+        'cart': cart,
+        'cart_items': cart_items
+    }
+
+    return render(request, 'product_catalog/cart.html', context)
