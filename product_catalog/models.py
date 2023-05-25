@@ -28,8 +28,9 @@ Product, представляющие категории и продукты в 
 модели `Category`, возвращает имя категории. В случае модели `Product`,
 возвращает короткое название продукта.
 """
-
+from django.contrib.auth import get_user_model
 from django.db import models
+from authorize.models import Person
 
 
 class Category(models.Model):
@@ -59,3 +60,21 @@ class Product(models.Model):
 
     def __str__(self):
         return self.short_name
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey('Cart', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.product} (Quantity: {self.quantity})"
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    items = models.ManyToManyField('product_catalog.CartItem', related_name='carts', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Cart #{self.id} for {self.user.username}"
