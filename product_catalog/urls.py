@@ -28,5 +28,7 @@ urlpatterns = [
         ProductByCategoryView.as_view(),
         name="product_by_category",
     ),
-    path("product/create/", ProductCreateView.as_view(), name="product_create"),
+    path("create/", ProductCreateView.as_view(), name="product_create"),
+    path('add_to_cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
+    path('cart/', view_cart, name='cart'),
 ]
