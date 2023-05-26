@@ -15,3 +15,18 @@ body {
 .search-form {
   min-width: 500px;
 }
+
+.card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+}
+
+.card-img-top {
+        object-fit: cover;
+        height: 200px; /* Установите желаемую высоту для изображения */
+}
+
+.card-body {
+        flex-grow: 1;
+}

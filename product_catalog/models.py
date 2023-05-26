@@ -73,7 +73,7 @@ class CartItem(models.Model):
 
 class Cart(models.Model):
     user = models.ForeignKey(Person, on_delete=models.CASCADE)
-    items = models.ManyToManyField('product_catalog.CartItem', related_name='carts', blank=True)
+    items = models.ManyToManyField('CartItem', related_name='carts', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
