@@ -11,7 +11,7 @@
 - from .models import Category, Product: для импорта моделей `Category` и
 `Product` из модуля models.py.
 - from .form import ProductForm: для импорта класса `ProductForm` из модуля
-form.py.
+forms.py.
 
 Представления (views):
 - product_card(request): представление для отображения страницы с информацией
@@ -26,7 +26,7 @@ from django.views import View
 from django.views.generic import DetailView
 
 from .models import Category, Product, Cart, CartItem
-from .form import ProductForm
+from .forms import ProductForm
 
 
 class ProductDetailView(DetailView):
