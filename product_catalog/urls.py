@@ -22,7 +22,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path("product_card/", product_card, name="product_card"),
     path(
         "category/<int:category_id>/",
         ProductByCategoryView.as_view(),
@@ -31,4 +30,5 @@ urlpatterns = [
     path("create/", ProductCreateView.as_view(), name="product_create"),
     path('add_to_cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
     path('cart/', view_cart, name='cart'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
 ]

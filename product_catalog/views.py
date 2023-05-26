@@ -23,15 +23,16 @@ form.py.
 """
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.views.generic import DetailView
+
 from .models import Category, Product, Cart, CartItem
 from .form import ProductForm
 
 
-def product_card(request):
-    """
-    Представление для отображения страницы с информацией о продукте.
-    """
-    return render(request, "product_catalog/product_card.html")
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'product_catalog/product_detail.html'
+    context_object_name = 'product'
 
 
 class ProductByCategoryView(View):
