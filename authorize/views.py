@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from authorize.forms import PersonForm
 from authorize.models import Person
+from product_catalog.models import Product
 
 
 def index(request):
@@ -25,7 +26,9 @@ def index(request):
     Зависимости:
     - from django.shortcuts import render
     """
-    return render(request, "authorize/index.html")
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, "authorize/index.html", context)
 
 
 @login_required
