@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'bm_api'
+    'bm_api',
     
     'authorize.apps.AuthorizeConfig',
     'product_catalog.apps.ProductCatalogConfig',
