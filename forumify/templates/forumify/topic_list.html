@@ -1,14 +1,14 @@
 {% extends 'authorize/base.html' %}
-{% load static %}
+
 {% block content %}
-  <h1>Темы в категории: {{ category.name }}</h1>
-  {% if topics %}
+<div class="container mt-5 bg-white">
+    <h1>Категория: {{ category.name }}</h1>
     <ul>
-      {% for topic in topics %}
-        <li>{{ topic.title }}</li>
-      {% endfor %}
+        {% for topic in topics %}
+        <li>
+            <a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a>
+        </li>
+        {% endfor %}
     </ul>
-  {% else %}
-    <p>Нет доступных тем в данной категории.</p>
-  {% endif %}
+</div>
 {% endblock %}
