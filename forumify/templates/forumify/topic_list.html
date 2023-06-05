@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'authorize/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Темы в категории: {{ category.name }}</h1>
+  {% if topics %}
+    <ul>
+      {% for topic in topics %}
+        <li>{{ topic.title }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Нет доступных тем в данной категории.</p>
+  {% endif %}
+{% endblock %}
