@@ -78,3 +78,5 @@ def edit_person(request):
         form = PersonForm(instance=person)
 
     return render(request, "authorize/edit_person.html", {"form": form})
+
+
