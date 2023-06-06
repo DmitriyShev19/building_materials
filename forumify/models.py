@@ -8,6 +8,7 @@ class Category(models.Model):
     detail = models.TextField(max_length=200)
     image = models.ImageField(upload_to='forum_category_images/', null=True,
                               blank=True)
+
     def __str__(self):
         return self.name
 
