@@ -1,0 +1,32 @@
+{% extends 'authorize/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ topic.title }}</h1>
+    <p>Автор: {{ post.author }}</p>
+    <p>{{ post.content }}</p>
+</div>
+
+<div class="container mt-5">
+    <h2>Комментарии</h2>
+    <ul>
+        {% for comment in comments %}
+        <li>{{ comment.author }}: {{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="container mt-5">
+    <h2>Добавить комментарий</h2>
+    <form method="post" action="{% url 'add_comment' topic.id %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="hidden" name="post" value="{{ post.id }}">
+            <input type="hidden" name="author_id" value="{{ user.pk }}">
+            <label for="id_content">Комментарий:</label>
+            <textarea class="form-control" id="id_content" name="content" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+{% endblock %}

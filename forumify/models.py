@@ -18,7 +18,7 @@ class Topic(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     author = models.ForeignKey(Person, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='topic_images', null=True, blank=True)
+    image = models.ImageField(upload_to='topic_images/', null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -35,11 +35,11 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(Person, on_delete=models.CASCADE)
-    content = models.TextField
+    content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Комментарий от {self.author.username} для {self.topic.title}'
+        return f'Комментарий от {self.author.username} для {self.post.content[:50]}'
 
