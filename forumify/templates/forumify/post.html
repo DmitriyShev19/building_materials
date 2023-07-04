@@ -1,10 +1,60 @@
 {% extends 'authorize/base.html' %}
 
 {% block content %}
+
+<style>
+    h1, h2 {
+        color: #b2810a;
+    }
+
+    p {
+        color: #fff;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+
+    li {
+        color: #ffffff;
+        margin-bottom: 5px;
+    }
+
+    label {
+        color: #e4a30d;
+    }
+
+    textarea {
+        background-color: #867c7f;
+        color: #2b1f1c;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        resize: vertical;
+    }
+
+    button {
+        background-color: #e4a30d;
+        color: #2b1f1c;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #554746;
+        color: #e4a30d;
+    }
+</style>
+
 <div class="container mt-5">
-    <h1>{{ topic.title }}</h1>
-    <p>Автор: {{ post.author }}</p>
-    <p>{{ post.content }}</p>
+    <h1 >{{ topic.title }}</h1>
+    <p >Автор: {{ post.author }}</p>
+    <p >{{ post.content }}</p>
 </div>
 
 <div class="container mt-5">
@@ -26,6 +76,7 @@
             <label for="id_content">Комментарий:</label>
             <textarea class="form-control" id="id_content" name="content" rows="3"></textarea>
         </div>
+        <p></p>
         <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>
