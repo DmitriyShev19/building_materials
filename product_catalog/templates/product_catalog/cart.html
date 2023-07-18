@@ -23,10 +23,13 @@
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.product.price }}</td>
                 <td>{{ item.total_price }}</td>
+                <td>{{ item.get_price }}</td>
             </tr>
             {% endfor %}
+        <p class="h1"> {{ price }}</p>
         </tbody>
     </table>
+         <a class="btn btn-outline-success" href="{% url 'checkout' %}" >Перейти к оформлению</a>
     {% else %}
     <p>Ваша корзина пуста.</p>
     {% endif %}
