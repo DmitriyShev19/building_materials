@@ -1,0 +1,14 @@
+{% extends 'authorize/base.html' %}
+
+{% block content %}
+<div class="container mt-5 bg-white">
+    <h1>Категория: {{ topic.title }}</h1>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.id %}">{{ post.content|truncatechars:50 }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
