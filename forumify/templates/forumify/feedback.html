@@ -1,0 +1,10 @@
+{% extends 'authorize/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Обратная связь</h1>
+  <form method="post" action="{% url 'feedback' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+  </form>
+{% endblock %}

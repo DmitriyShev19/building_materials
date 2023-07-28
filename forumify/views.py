@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
-from forumify.forms import CommentForm
+from forumify.forms import CommentForm, FeedbackForm
 from forumify.models import Category, Topic, Post, Comment
 
 
@@ -57,3 +57,17 @@ class AddCommentView(View):
             comment.save()
             return redirect('post_detail', post_id=post_id)
 
+
+def feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback_success')
+    else:
+        form = FeedbackForm()
+    return render(request, 'forumify/feedback.html', {'form': form})
+
+
+def feedback_success(request):
+    return render(request, 'forumify/feedback_success.html')
