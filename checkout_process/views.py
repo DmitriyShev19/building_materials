@@ -1,5 +1,4 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views import View
@@ -12,5 +11,5 @@ class CheckView(LoginRequiredMixin, View):
         user = request.user
         if not (user.city and user.street and user.house_number and user.phone_numbers) :
             return redirect(reverse('edit_person'))
-        return redirect(reverse('payment_page'))
+        return redirect(reverse('PayCart'))
 
