@@ -111,14 +111,22 @@ def view_cart(request):
     user = request.user
     cart = Cart.objects.filter(user=user).first()
     cart_items = CartItem.objects.filter(cart=cart)
-    price = 0
-    for cart_item in cart_items:
-        price += cart_item.product.price * cart_item.quantity
 
     context = {
         'cart': cart,
         'cart_items': cart_items,
-        'price': price
+        'price': count_price(request)
     }
 
     return render(request, 'product_catalog/cart.html', context)
+
+
+def count_price(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+    cart_items = CartItem.objects.filter(cart=cart)
+    price = 0
+    for cart_item in cart_items:
+        price += cart_item.product.price * cart_item.quantity
+
+    return int(price)
