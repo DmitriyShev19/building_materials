@@ -34,7 +34,7 @@
     <!-- default css  -->
     <link rel="stylesheet" href="{% static 'authorize/jantrik/css/default.css' %}">
     <!-- style css -->
-    <link rel="stylesheet" href="{% static 'authorize/jantrik/style.css' %}">
+    <link rel="stylesheet" href="{% static 'authorize/jantrik/css/style.css' %}">
     <!-- responsive css -->
     <link rel="stylesheet" href="{% static 'authorize/jantrik/css/responsive.css' %}">
 
@@ -150,7 +150,7 @@
                                     <li><a href="compare.html"><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'account_login' %}">Login</a></li>
-                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="{% url 'account_signup' %}">Register</a></li>
                                             <li><a href="account.html">Account</a></li>
                                         </ul>
                                     </li>
@@ -161,7 +161,7 @@
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/menu/1.jpg" alt="cart-image"></a>
+                                                        <a href="#"><img src="{% static 'authorize/jantrik/img/menu/1.jpg' %}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h6><a href="product.html">Products Name</a></h6>
@@ -173,7 +173,7 @@
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/menu/2.jpg" alt="cart-image"></a>
+                                                        <a href="#"><img src="{% static 'authorize/jantrik/img/menu/2.jpg' %}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h6><a href="product.html">Products Name</a></h6>
@@ -274,8 +274,8 @@
                         <div class="slider-wrapper theme-default">
                             <!-- Slider Background  Image Start-->
                             <div id="slider" class="nivoSlider">
-                                <a href="shop.html"> <img src="img/slider/5.jpg" data-thumb="img/slider/5.jpg" alt="" title="#slider-1-caption1"/></a>
-                                <a href="shop.html"><img src="img/slider/6.jpg" data-thumb="img/slider/6.jpg" alt="" title="#slider-1-caption2"/></a>
+                                <a href="shop.html"> <img src="{% static 'authorize/jantrik/img/slider/5.jpg' %}" data-thumb="{% static 'authorize/jantrik/img/slider/5.jpg' %}" alt="" title="#slider-1-caption1"/></a>
+                                <a href="shop.html"><img src="{% static 'authorize/jantrik/img/slider/6.jpg' %}" data-thumb="{% static 'authorize/jantrik/img/slider/6.jpg' %}" alt="" title="#slider-1-caption2"/></a>
                             </div>
                             <!-- Slider Background  Image Start-->
                             <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
@@ -305,12 +305,12 @@
                     <div class="col-md-4">
                          <!-- Single Banner Start -->
                         <div class="single-banner zoom mb-20">
-                            <a href="#"><img src="img/banner/9.jpg" alt="slider-banner"></a>
+                            <a href="#"><img src="{% static 'authorize/jantrik/img/banner/9.jpg' %}" alt="slider-banner"></a>
                         </div>
                         <!-- Single Banner End -->
                         <!-- Single Banner Start -->
                         <div class="single-banner zoom">
-                            <a href="#"><img src="img/banner/10.jpg" alt="slider-banner"></a>
+                            <a href="#"><img src="{% static 'authorize/jantrik/img/banner/10.jpg' %}" alt="slider-banner"></a>
                         </div>
                         <!-- Single Banner End -->
                     </div>
@@ -334,7 +334,7 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="product.html"><img class="img" src="img/products/1.jpg" alt="product-image"></a>
+                                            <a href="product.html"><img class="img" src="{% static 'authorize/jantrik/img/products/1.jpg' %}" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
                                             <div class="product-rating">
