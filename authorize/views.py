@@ -28,7 +28,7 @@ def index(request):
     """
     products = Product.objects.all()
     context = {'products': products}
-    return render(request, "authorize/index.html", context)
+    return render(request, "authorize/index1.html", context)
 
 
 @login_required
