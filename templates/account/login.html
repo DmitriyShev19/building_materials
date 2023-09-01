@@ -13,7 +13,7 @@
                                 <h3>NEW CUSTOMER</h3>
                                 <p class="mtb-10"><strong>Register</strong></p>
                                 <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made</p>
-                                <a class="customer-btn" href="register.html">continue</a>
+                                <a class="customer-btn" href="signup.html">continue</a>
                             </div>
                         </div>
                     </div>
@@ -24,17 +24,18 @@
                             <div class="return-customer">
                                 <h3 class="mb-10">RETURNING CUSTOMER</h3>
                                 <p class="mb-10"><strong>I am a returning customer</strong></p>
-                                <form action="#">
-                                    <div class="form-group">
-                                        <label class="control-label">Enter your email address here...</label>
-                                        <input type="text" name="email" placeholder="Enter your email address here..." id="input-email" class="form-control">
+                                <form class="login" method="POST" action="{% url 'account_login' %}">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Логин</label>
+                                        <input type="text" class="form-control" id="username" name="login">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Password</label>
-                                        <input type="text" name="pass" placeholder="Password" id="input-password" class="form-control">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Пароль</label>
+                                        <input type="password" class="form-control" id="password" name="password" required>
                                     </div>
-                                    <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
-                                    <input type="submit" value="Login" class="return-customer-btn">
+                                                <p class="lost-password"><a href="forgot-password.html">Forgot password?</a></p>
+                                                <input type="submit" value="Login" class="return-customer-btn">
                                 </form>
                             </div>
                         </div>
