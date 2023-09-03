@@ -54,7 +54,7 @@
                         <!-- Header Top left Start -->
                         <div class="col-lg-4 col-md-12 d-center">
                             <div class="header-top-left">
-                                <img src="{% static 'authorize/jantrik/img/icon/call.png' %} " alt="">Call Us : +11 222 3333
+                                <img src="{% static 'authorize/jantrik/img/icon/call.png' %} " alt="">Позвоните нам: +7 999 999 99 99
                             </div>
                         </div>
                         <!-- Header Top left End -->
@@ -125,18 +125,7 @@
                                             </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>
-{#                                        <li><a href="#">pages<i class="fa fa-angle-down"></i></a>#}
-{#                                            <!-- Home Version Dropdown Start -->#}
-{#                                            <ul class="ht-dropdown dropdown-style-two">#}
-{#                                                <li><a href="login.html">Login Page</a></li>#}
-{#                                                <li><a href="signup.html">Register Page</a></li>#}
-{#                                                <li><a href="404.html">404 Page</a></li>#}
-{#                                                <li><a href="forgot-password.html">Forgot Password Page</a></li>#}
-{#                                                <li><a href="account.html">Account Page</a></li>#}
-{#                                            </ul>#}
-{#                                            <!-- Home Version Dropdown End -->#}
-{#                                        </li>#}
-                                        <li><a href="contact.html">Связаться с нами</a></li>
+                                     <li><a href="contact.html">Связаться с нами</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -146,11 +135,15 @@
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
                                 <ul>
-                                    <li><a href="compare.html"><i class="fa fa-cog"></i></a>
+                                    <li><a href="#"><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
-                                            <li><a href="{% url 'account_login' %}">Login</a></li>
-                                            <li><a href="{% url 'account_signup' %}">Register</a></li>
-                                            <li><a href="account.html">Account</a></li>
+                                            {% if user.is_authenticated %}
+                                                <li><a href="{% url 'edit_person' %}">Аккаунт</a></li>
+                                                <li><a href="{% url 'account_logout' %}">Выход</a></li>
+                                            {% else %}
+                                                <li><a href="{% url 'account_login' %}">Вход</a></li>
+                                                <li><a href="{% url 'account_signup' %}">Регистрация</a></li>
+                                            {% endif %}
                                         </ul>
                                     </li>
                                     <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>

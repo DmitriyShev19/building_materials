@@ -28,27 +28,27 @@ def index(request):
     """
     products = Product.objects.all()
     context = {'products': products}
-    return render(request, "authorize/index1.html", context)
+    return render(request, "authorize/index.html", context)
 
 
-@login_required
-def profile(request):
-    """
-    Отображает профиль пользователя.
-
-    Аргументы:
-    - request: объект запроса Django.
-
-    Возвращает:
-    - Отрисованный шаблон 'authorize/profile.html' с информацией о пользователе.
-
-    Зависимости:
-    - from django.contrib.auth.decorators import login_required
-    - from django.shortcuts import render, get_object_or_404
-    - from authorize.models import Person
-    """
-    person = get_object_or_404(Person, pk=request.user.pk)
-    return render(request, "authorize/profile.html", {"person": person})
+# @login_required
+# def profile(request):
+#     """
+#     Отображает профиль пользователя.
+#
+#     Аргументы:
+#     - request: объект запроса Django.
+#
+#     Возвращает:
+#     - Отрисованный шаблон 'authorize/profile.html' с информацией о пользователе.
+#
+#     Зависимости:
+#     - from django.contrib.auth.decorators import login_required
+#     - from django.shortcuts import render, get_object_or_404
+#     - from authorize.models import Person
+#     """
+#     person = get_object_or_404(Person, pk=request.user.pk)
+#     return render(request, "authorize/account.html", {"person": person})
 
 
 @login_required
@@ -76,7 +76,8 @@ def edit_person(request):
             return redirect("profile")
     else:
         form = PersonForm(instance=person)
+        form.fields["first_name"].initial = person.first_name
 
-    return render(request, "authorize/edit_person.html", {"form": form})
+    return render(request, "authorize/account.html", {"form": form})
 
 
