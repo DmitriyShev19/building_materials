@@ -30,6 +30,12 @@ from allauth.account.forms import LoginForm, SignupForm
 
 
 class PersonForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['avatar'].label = "Аватар"
+        #и так далее создаём поля, которые будут отображаться
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
     class Meta:
         model = Person
         fields = [

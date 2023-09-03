@@ -1,0 +1,170 @@
+{% extends 'authorize/base.html' %}
+{% load static %}
+{% block content %}
+        <!-- My Account Page Start Here -->
+        <div class="my-account white-bg pb-60">
+            <div class="container">
+                <div class="account-dashboard">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <!-- Nav tabs -->
+                            <ul class="nav flex-column dashboard-list" role="tablist">
+                                <li><a class="active"  data-toggle="tab" href="#account-details">Детали аккаунта</a></li>
+                                <li><a data-toggle="tab" href="#orders">Заказы</a></li>
+                                <li><a href="{% url 'account_logout' %}">Выход</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-10">
+                            <!-- Tab panes -->
+                            <div class="tab-content dashboard-content mt-all-40">
+                                <div id="orders" class="tab-pane ">
+                                    <h3>Orders</h3>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                    <th>Total</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>May 10, 2018</td>
+                                                    <td>Processing</td>
+                                                    <td>$25.00 for 1 item </td>
+                                                    <td><a class="view" href="cart.html">view</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>May 10, 2018</td>
+                                                    <td>Processing</td>
+                                                    <td>$17.00 for 1 item </td>
+                                                    <td><a class="view" href="cart.html">view</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="account-details" class="tab-pane active">
+                                    <h3>Детали аккаунта </h3>
+                                    <div class="register-form login-form clearfix">
+                                        <form method="POST" enctype="multipart/form-data">
+                                          {% csrf_token %}
+                                          {{ form.as_ul }}
+                                          <button type="submit">Сохранить</button>
+                                        </form>
+{#                                        <form action="#">#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="f-name" class="col-lg-3 col-md-4 col-form-label">Имя</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    {{ person.first_name }}#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="l-name" class="col-lg-3 col-md-4 col-form-label">Last Name</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    <input type="text" class="form-control" id="l-name">#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="email" class="col-lg-3 col-md-4 col-form-label">Email address</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    <input type="text" class="form-control" id="email">#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="inputpassword" class="col-lg-3 col-md-4 col-form-label">Current password</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    <input type="password" class="form-control" id="inputpassword">#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="newpassword" class="col-lg-3 col-md-4 col-form-label">New password</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    <input type="password" class="form-control" id="newpassword">#}
+{#                                                    <button class="btn show-btn" type="button">Show</button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="v-password" class="col-lg-3 col-md-4 col-form-label">Confirm password</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    <input type="password" class="form-control" id="c-password">#}
+{#                                                    <button class="btn show-btn" type="button">Show</button>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-group row">#}
+{#                                                <label for="birth" class="col-lg-3 col-md-4 col-form-label">Birthdate</label>#}
+{#                                                <div class="col-lg-6 col-md-8">#}
+{#                                                    <input type="text" class="form-control" id="birth" placeholder="MM/DD/YYYY">#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-check row p-0 mt-20">#}
+{#                                                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-4">#}
+{#                                                    <input class="form-check-input" value="#" id="offer" type="checkbox">#}
+{#                                                    <label class="form-check-label" for="offer">Receive offers from our partners</label>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="form-check row p-0 mt-20">#}
+{#                                                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-4">#}
+{#                                                    <input class="form-check-input" value="#" id="subscribe" type="checkbox">#}
+{#                                                    <label class="form-check-label" for="subscribe">Sign up for our newsletter<br>Subscribe to our newsletters now and stay up-to-date with new collections, the latest lookbooks and exclusive offers..</label>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <div class="register-box mt-40">#}
+{#                                                <button type="submit" class="return-customer-btn f-right">Save</button>#}
+{#                                            </div>#}
+{#                                        </form>#}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Account Page End Here -->
+        <!-- Brand Logo Start -->
+        <div class="brand-area pb-60">
+            <div class="container">
+                <!-- Brand Banner Start -->
+                <div class="brand-banner owl-carousel">
+                    <div class="single-brand">
+                        <a href="#"><img class="img" src="img/brand/1.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img class="img" src="img/brand/1.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
+                    </div>
+                    <div class="single-brand">
+                        <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
+                    </div>
+                </div>
+                <!-- Brand Banner End -->                
+            </div>
+        </div>
+        <!-- Brand Logo End -->
+{% endblock %}

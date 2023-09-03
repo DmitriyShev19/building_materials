@@ -125,7 +125,7 @@
                                             </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>
-{#                                      <li><a href="contact.html">Связаться с нами</a></li>
+                                     <li><a href="contact.html">Связаться с нами</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -135,12 +135,15 @@
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
                                 <ul>
-                                    <li><a href="compare.html"><i class="fa fa-cog"></i></a>
+                                    <li><a href="#"><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
-                                            {% if lo %}
-                                            <li><a href="{% url 'account_login' %}">Login</a></li>
-                                            <li><a href="{% url 'account_signup' %}">Register</a></li>
-                                            <li><a href="account.html">Account</a></li>
+                                            {% if user.is_authenticated %}
+                                                <li><a href="{% url 'edit_person' %}">Аккаунт</a></li>
+                                                <li><a href="{% url 'account_logout' %}">Выход</a></li>
+                                            {% else %}
+                                                <li><a href="{% url 'account_login' %}">Вход</a></li>
+                                                <li><a href="{% url 'account_signup' %}">Регистрация</a></li>
+                                            {% endif %}
                                         </ul>
                                     </li>
                                     <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
