@@ -10,7 +10,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from authorize.forms import PersonForm
 from authorize.models import Person
-from product_catalog.models import Product
+from product_catalog.models import Product, Cart, CartItem
+from product_catalog.views import count_price
 
 
 def index(request):
@@ -27,7 +28,8 @@ def index(request):
     - from django.shortcuts import render
     """
     products = Product.objects.all()
-    context = {'products': products}
+    context = cart_detail(request)
+    context["products"] = products
     return render(request, "authorize/index.html", context)
 
 
@@ -51,6 +53,17 @@ def index(request):
 #     return render(request, "authorize/account.html", {"person": person})
 
 
+def cart_detail(request):
+    user = request.user
+    cart = Cart.objects.filter(user=user).first()
+    cart_items = CartItem.objects.filter(cart=cart)
+
+    context = {
+        'cart': cart,
+        'cart_items': cart_items,
+        'price': count_price(request)
+    }
+    return context
 @login_required
 def edit_person(request):
     """
